@@ -5,8 +5,11 @@ import './HomePage.css'
 export default function HomePage() {
     return (
         <div className='HomePage'>
-            <h1>Jon's Portfolio Homepage</h1>
-            <Link to='/about'>About Me</Link>
+            <div className="wrapper">
+                <h1>Jon's Portfolio Homepage</h1>
+                <Link to='/about'>About Me</Link>
+                <Link to='/projects'>My Projects</Link>
+            </div>
         </div>
     )
 }
