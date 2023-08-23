@@ -11,22 +11,23 @@ export default function App() {
 
   const [showIntro, setShowIntro] = useState(true)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowIntro(false)
-    }, 5000)
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowIntro(false)
+  //   }, 5000)
 
-    return () => clearTimeout(timer)
-  }, [])
+  //   return () => clearTimeout(timer)
+  // }, [])
 
-  if (showIntro) {
-    return <IntroAnimation onComplete={() => setShowIntro(false)} />
-  }
+  // if (showIntro) {
+  //   return <IntroAnimation onComplete={() => setShowIntro(false)} />
+  // }
 
   return (
     <main className="App">
       <Routes>
-        <Route path='/' element={<HomePage />} />
+        {/* <Route path='/' element={<HomePage />} /> */}
+        <Route path='/' element={<IntroAnimation />} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/projects' element={<ProjectsPage />} />
       </Routes>
