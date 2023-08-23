@@ -43,23 +43,20 @@ export default function IntroAnimation({ onComplete }) {
             }
         }, 120)
 
-        const cursorInterval = setInterval(() => {
-            setVisible(visible => !visible)
-        }, 400)
-
         return () => {
             clearInterval(typingInterval)
-            clearInterval(cursorInterval)
         }
     }, [isWaiting, letterCount, direction, phraseIndex, words])
 
     return (
         <div className="IntroAnimation">
-            <div style={{ color: colors[phraseIndex] }}>
-                <span id='intro-text'>{words[phraseIndex].substring(0, letterCount)}</span>
-                <span className={visible ? 'console-underscore' : 'console-underscore-hidden'}>
-                    _
-                </span>
+            <div className="animation-container">
+                <div style={{ color: colors[phraseIndex] }}>
+                    <span id='intro-text'>{words[phraseIndex].substring(0, letterCount)}</span>
+                    <span className={'console-underscore'}>
+                        &#95;
+                    </span>
+                </div>
             </div>
             <button onClick={onComplete}>Skip Intro</button>
         </div>

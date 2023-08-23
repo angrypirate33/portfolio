@@ -8,7 +8,17 @@
     align-items: center;
 }
 
-.hidden {
-    opacity: 0;
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
+.console-underscore {
+    font-size: 10em;
+    animation: blink 1.25s infinite;
+}
+
+#intro-text {
+    font-size: 10em;
+}
