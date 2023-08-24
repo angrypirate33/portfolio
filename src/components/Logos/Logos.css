@@ -1,0 +1,14 @@
+
+
+.logos-container {
+    display: inline-grid;
+    grid-template-columns: repeat(6, minmax(100px, 1fr));
+    gap: 2rem;
+    padding: 1em;
+    justify-content: center;
+    background-color: lightgray;
+}
+
+.logo-item {
+    height: auto;
+}
