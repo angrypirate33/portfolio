@@ -24,49 +24,40 @@ export default function IntroAnimation({ onComplete }) {
 
     useEffect(() => {
         function typeChar() {
-            const { currentLineIndex, currentCharIndex, changingPhraseIndex, direction } = typingState;
+            const { currentLineIndex, currentCharIndex, changingPhraseIndex, direction } = typingState
         
-            let newLineIndex = currentLineIndex;
-            let newCharIndex = currentCharIndex;
-            let newPhraseIndex = changingPhraseIndex;
-            let newDirection = direction;
+            let newLineIndex = currentLineIndex
+            let newCharIndex = currentCharIndex
+            let newPhraseIndex = changingPhraseIndex
+            let newDirection = direction
         
-            let currentLine = baseLines[newLineIndex];
+            let currentLine = baseLines[newLineIndex]
         
             if (newLineIndex === 1 && newCharIndex < baseLines[1].length) {
-                // Type "I am a "
-                newCharIndex += 1;
+                newCharIndex += 1
             } else if (newLineIndex === 1) {
-                // We're appending phrases now
-                const phraseCharIndex = newCharIndex - baseLines[1].length;
-                const currentPhrase = changingPhrases[newPhraseIndex];
+                const phraseCharIndex = newCharIndex - baseLines[1].length
+                const currentPhrase = changingPhrases[newPhraseIndex]
         
                 if (phraseCharIndex < currentPhrase.length && newDirection === 1) {
-                    // Type the phrase
-                    newCharIndex += 1;
+                    newCharIndex += 1
                 } else if (newDirection === -1 && phraseCharIndex > 0) {
-                    // Delete the phrase
-                    newCharIndex -= 1;
+                    newCharIndex -= 1
                 } else if (newDirection === -1 && phraseCharIndex === 0 && newPhraseIndex < changingPhrases.length - 1) {
-                    // Finished deleting and it's not the last phrase
-                    newPhraseIndex += 1;
-                    newDirection = 1;
+                    newPhraseIndex += 1
+                    newDirection = 1
                 } else if (newPhraseIndex === changingPhrases.length - 1 && phraseCharIndex === currentPhrase.length) {
-                    // Move to the next base line after the last phrase
-                    newLineIndex += 1;
-                    newCharIndex = 0;
+                    newLineIndex += 1
+                    newCharIndex = 0
                 } else {
-                    // Transition to deletion mode for the current phrase
-                    newDirection = -1;
-                    newCharIndex -= 1;
+                    newDirection = -1
+                    newCharIndex -= 1
                 }
             } else if (newCharIndex < currentLine.length) {
-                // Other lines, just type
-                newCharIndex += 1;
+                newCharIndex += 1
             } else if (newCharIndex === currentLine.length && newLineIndex < baseLines.length - 1) {
-                // Move to the next line after completing the current line
-                newLineIndex += 1;
-                newCharIndex = 0;
+                newLineIndex += 1
+                newCharIndex = 0
             }
         
             setTypingState({ currentLineIndex: newLineIndex, currentCharIndex: newCharIndex, changingPhraseIndex: newPhraseIndex, direction: newDirection });
@@ -87,22 +78,19 @@ export default function IntroAnimation({ onComplete }) {
         <div className='IntroAnimation'>
             <div className='animation-container'>
                 {baseLines.map((line, index) => {
-                    if (index > currentLineIndex) {
-                        return null
-                    }
 
                     let content = line
 
                     if (index === currentLineIndex) {
                         if (index === 1) {
-                            content += changingPhrases[changingPhraseIndex].substring(0, currentCharIndex - line.length)
+                            content = line.substring(0, currentCharIndex) + changingPhrases[changingPhraseIndex].substring(0, currentCharIndex - line.length)
                         } else {
                             content = line.substring(0, currentCharIndex)
                         }
-                    } else if (index < currentLineIndex) {
-                        if (index === 1) {
-                            content += changingPhrases[changingPhrases.length - 1]
-                        }
+                    } else if (index > currentLineIndex) {
+                        return null
+                    } else if (index === 1) {
+                            content += changingPhrases[changingPhraseIndex]
                     }
 
                     return (
