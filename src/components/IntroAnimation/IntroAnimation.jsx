@@ -1,62 +1,87 @@
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import './IntroAnimation.css'
 
 export default function IntroAnimation({ onComplete }) {
 
-    const words = ['This is a test', 'This is only a test', 'Do not be alarmed']
-    const colors = ['red', 'blue', 'green']
+    const baseLines =  useMemo(() => [
+        'Hello, I am Jon Schiavone.',
+        'I am a ',
+        'Thank you for visiting my portfolio!'
+    ], [])
 
-    const [phraseIndex, setPhraseIndex] = useState(0)
-    const [letterCount, setLetterCount] = useState(0)
+    const changingPhrases = ['critical thinker.', 'problem solver.', 'full-stack web developer.']
+
+    const [currentLineIndex, setCurrentLineIndex] = useState(0)
+    const [currentCharIndex, setcurrentCharIndex] = useState(0)
+    const [changingPhraseIndex, setChangingPhraseIndex] = useState(0)
     const [direction, setDirection] = useState(1)
-    const [isWaiting, setIsWaiting] = useState(false)
-    const [visible, setVisible] = useState(true)
-
 
     useEffect(() => {
-
-        const typingInterval = setInterval(() => {
-            if (isWaiting) return
-
-            if (letterCount === words[phraseIndex].length + 1) {
-                setIsWaiting(true)
-                setTimeout(() => {
-                    setDirection(-1)
-                    setLetterCount(prevCount => prevCount + direction)
-                    setIsWaiting(false)
-                }, 10)
-            } else if (letterCount === 0 && direction === -1) {
-                setIsWaiting(true)
-                setTimeout(() => {
-                    if (phraseIndex < words.length - 1) {
-                        const newIndex = phraseIndex + 1
-                        setPhraseIndex(newIndex)
-                        setDirection(1)
-                    } else {
-                        clearInterval(typingInterval)
-                    }
-                    setIsWaiting(false)
-                }, 1000)
-            } else {
-                setLetterCount(prevCount => prevCount + direction)
+        function typeChar() {
+            
+            let currentLine = baseLines[currentLineIndex]
+            
+            if (currentLineIndex === 1) {
+                currentLine += changingPhrases[changingPhraseIndex]
             }
-        }, 120)
+
+            if (currentCharIndex === currentLine.length && direction === 1) {
+                if (currentLineIndex === 1) {
+                    if (changingPhraseIndex < changingPhrases.length - 1) {
+                        setChangingPhraseIndex(prev => prev + 1)
+                        setDirection(-1)
+                        setcurrentCharIndex(baseLines[1].length)
+                    } else {
+                        setCurrentLineIndex(prev => prev + 1)
+                        setcurrentCharIndex(0)
+                    }
+                } else if (currentLineIndex < baseLines.length - 1) {
+                    setCurrentLineIndex(prev => prev + 1)
+                    setcurrentCharIndex(0)
+                }
+            } else if (currentCharIndex === baseLines[1].length && direction === -1 && currentLineIndex === 1) {
+                setDirection(1)
+            } else {
+                setcurrentCharIndex(prev => prev + direction)
+            }
+        } 
+
+        const typingInterval = setInterval(typeChar, 120)
 
         return () => {
             clearInterval(typingInterval)
         }
-    }, [isWaiting, letterCount, direction, phraseIndex, words])
+    }, [currentLineIndex, currentCharIndex, direction, changingPhraseIndex, baseLines])
 
     return (
-        <div className="IntroAnimation">
-            <div className="animation-container">
-                <div style={{ color: colors[phraseIndex] }}>
-                    <span id='intro-text'>{words[phraseIndex].substring(0, letterCount)}</span>
-                    <span className={'console-underscore'}>
-                        &#95;
-                    </span>
-                </div>
+        <div className='IntroAnimation'>
+            <div className='animation-container'>
+                {baseLines.map((line, index) => {
+                    if (index > currentLineIndex) {
+                        return null
+                    }
+
+                    let content = line
+                    if (index === currentLineIndex) {
+                        if (index === 1) {
+                            content += changingPhrases[changingPhraseIndex].substring(0, currentCharIndex - line.length)
+                        } else {
+                            content = line.substring(0, currentCharIndex)
+                        }
+                    } else if (index < currentLineIndex) {
+                        if (index === 1) {
+                            content += changingPhrases[changingPhrases.length - 1]
+                        }
+                    }
+
+                    return (
+                        <div key={index}>
+                            {content}
+                            {index === currentLineIndex && <span className='console-underscore'>&#95;</span>}
+                        </div>
+                    ) 
+                })}
             </div>
             <button onClick={onComplete}>Skip Intro</button>
         </div>
