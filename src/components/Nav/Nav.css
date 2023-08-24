@@ -25,6 +25,12 @@
     font-size: 1.25em;
     color: rgb(222, 227, 221);
     text-decoration: none;
+    transition: all 0.1s ease-in-out;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    text-shadow: 2px 2px 4px rgba(222, 227, 221, 0.7);
 }
 
 a.active {
