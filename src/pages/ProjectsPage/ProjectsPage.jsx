@@ -3,6 +3,10 @@ import './ProjectsPage.css'
 
 export default function ProjectsPage() {
     return (
-        <h1>Projects Page</h1>
+        <div className="ProjectsPage">
+            <div className="wrapper">
+                <h1 className='page-title'>Projects Page</h1>
+            </div>
+        </div>
     )
 }

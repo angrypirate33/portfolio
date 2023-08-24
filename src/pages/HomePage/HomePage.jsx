@@ -7,10 +7,9 @@ export default function HomePage() {
     return (
         <div className='HomePage'>
             <div className="wrapper">
-                <h1 className='page-title'>Jon's Portfolio Homepage</h1>
-                <Link to='/about'>About Me</Link>
-                <Link to='/projects'>My Projects</Link>
-                <Logos />
+                <h1 className="page-title">
+                    Home Page
+                </h1>
             </div>
         </div>
     )
