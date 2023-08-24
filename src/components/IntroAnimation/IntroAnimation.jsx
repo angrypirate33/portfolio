@@ -7,52 +7,81 @@ export default function IntroAnimation({ onComplete }) {
     const baseLines =  useMemo(() => [
         'Hello, I am Jon Schiavone.',
         'I am a ',
-        'Thank you for visiting my portfolio!'
+        'Thank you for visiting my portfolio!',
+        ''
     ], [])
 
     const changingPhrases = ['critical thinker.', 'problem solver.', 'full-stack web developer.']
 
-    const [currentLineIndex, setCurrentLineIndex] = useState(0)
-    const [currentCharIndex, setcurrentCharIndex] = useState(0)
-    const [changingPhraseIndex, setChangingPhraseIndex] = useState(0)
-    const [direction, setDirection] = useState(1)
+    const [typingState, setTypingState] = useState({
+        currentLineIndex: 0,
+        currentCharIndex: 0,
+        changingPhraseIndex: 0,
+        direction: 1
+    })
+
+    const { currentLineIndex, currentCharIndex, changingPhraseIndex } = typingState
 
     useEffect(() => {
         function typeChar() {
-            
-            let currentLine = baseLines[currentLineIndex]
-            
-            if (currentLineIndex === 1) {
-                currentLine += changingPhrases[changingPhraseIndex]
-            }
-
-            if (currentCharIndex === currentLine.length && direction === 1) {
-                if (currentLineIndex === 1) {
-                    if (changingPhraseIndex < changingPhrases.length - 1) {
-                        setChangingPhraseIndex(prev => prev + 1)
-                        setDirection(-1)
-                        setcurrentCharIndex(baseLines[1].length)
-                    } else {
-                        setCurrentLineIndex(prev => prev + 1)
-                        setcurrentCharIndex(0)
-                    }
-                } else if (currentLineIndex < baseLines.length - 1) {
-                    setCurrentLineIndex(prev => prev + 1)
-                    setcurrentCharIndex(0)
+            const { currentLineIndex, currentCharIndex, changingPhraseIndex, direction } = typingState;
+        
+            let newLineIndex = currentLineIndex;
+            let newCharIndex = currentCharIndex;
+            let newPhraseIndex = changingPhraseIndex;
+            let newDirection = direction;
+        
+            let currentLine = baseLines[newLineIndex];
+        
+            if (newLineIndex === 1 && newCharIndex < baseLines[1].length) {
+                // Type "I am a "
+                newCharIndex += 1;
+            } else if (newLineIndex === 1) {
+                // We're appending phrases now
+                const phraseCharIndex = newCharIndex - baseLines[1].length;
+                const currentPhrase = changingPhrases[newPhraseIndex];
+        
+                if (phraseCharIndex < currentPhrase.length && newDirection === 1) {
+                    // Type the phrase
+                    newCharIndex += 1;
+                } else if (newDirection === -1 && phraseCharIndex > 0) {
+                    // Delete the phrase
+                    newCharIndex -= 1;
+                } else if (newDirection === -1 && phraseCharIndex === 0 && newPhraseIndex < changingPhrases.length - 1) {
+                    // Finished deleting and it's not the last phrase
+                    newPhraseIndex += 1;
+                    newDirection = 1;
+                } else if (newPhraseIndex === changingPhrases.length - 1 && phraseCharIndex === currentPhrase.length) {
+                    // Move to the next base line after the last phrase
+                    newLineIndex += 1;
+                    newCharIndex = 0;
+                } else {
+                    // Transition to deletion mode for the current phrase
+                    newDirection = -1;
+                    newCharIndex -= 1;
                 }
-            } else if (currentCharIndex === baseLines[1].length && direction === -1 && currentLineIndex === 1) {
-                setDirection(1)
-            } else {
-                setcurrentCharIndex(prev => prev + direction)
+            } else if (newCharIndex < currentLine.length) {
+                // Other lines, just type
+                newCharIndex += 1;
+            } else if (newCharIndex === currentLine.length && newLineIndex < baseLines.length - 1) {
+                // Move to the next line after completing the current line
+                newLineIndex += 1;
+                newCharIndex = 0;
             }
-        } 
-
-        const typingInterval = setInterval(typeChar, 120)
-
-        return () => {
-            clearInterval(typingInterval)
+        
+            setTypingState({ currentLineIndex: newLineIndex, currentCharIndex: newCharIndex, changingPhraseIndex: newPhraseIndex, direction: newDirection });
         }
-    }, [currentLineIndex, currentCharIndex, direction, changingPhraseIndex, baseLines])
+        
+        
+         
+
+        const typingInterval = setInterval(() => {
+            const { currentLineIndex, currentCharIndex, changingPhraseIndex, direction } = typingState;
+            typeChar(currentLineIndex, currentCharIndex, changingPhraseIndex, direction);
+        }, 120)
+
+        return () => clearInterval(typingInterval)
+    }, [typingState, baseLines])
 
     return (
         <div className='IntroAnimation'>
@@ -63,6 +92,7 @@ export default function IntroAnimation({ onComplete }) {
                     }
 
                     let content = line
+
                     if (index === currentLineIndex) {
                         if (index === 1) {
                             content += changingPhrases[changingPhraseIndex].substring(0, currentCharIndex - line.length)
