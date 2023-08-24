@@ -1,0 +1,11 @@
+
+.AboutMe {
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.about-me-text {
+    font-size: 1.5em;
+    width: 50vw;
+}
