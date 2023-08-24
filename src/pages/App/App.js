@@ -23,18 +23,18 @@ export default function App() {
     if (showIntro) {
       return <IntroAnimation onComplete={() => setShowIntro(false)} />
     }
-    
+
   return (
     <main className="App">
       <Nav />
       <div className='section' id='home'>
       <HomePage />
       </div>
-      <div className='section' id='about'>
-      <AboutPage />
-      </div>
       <div className='section' id='projects'>
       <ProjectsPage />
+      </div>
+      <div className='section' id='about'>
+      <AboutPage />
       </div>
     </main>
   )

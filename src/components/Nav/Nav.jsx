@@ -32,8 +32,8 @@ export default function Nav() {
             <div className='nav-container'>
                 <div className='nav-links'>
                     <a className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} href='#home'>Home</a>
-                    <a className={`nav-link ${activeSection === 'about' ? 'active' : ''}`} href='#about'>About</a>
                     <a className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`} href='#projects'>Projects</a>
+                    <a className={`nav-link ${activeSection === 'about' ? 'active' : ''}`} href='#about'>About</a>
                 </div>
             </div>
         </div>
