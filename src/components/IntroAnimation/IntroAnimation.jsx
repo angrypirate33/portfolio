@@ -23,9 +23,17 @@ export default function IntroAnimation({ onComplete }) {
     const { currentLineIndex, currentCharIndex, changingPhraseIndex } = typingState
 
     useEffect(() => {
+
+        let skipNext = false
+
         function typeChar() {
             const { currentLineIndex, currentCharIndex, changingPhraseIndex, direction } = typingState
         
+            if (direction === 1 && skipNext) {
+                skipNext = !skipNext
+                return
+            }
+
             let newLineIndex = currentLineIndex
             let newCharIndex = currentCharIndex
             let newPhraseIndex = changingPhraseIndex
@@ -61,15 +69,18 @@ export default function IntroAnimation({ onComplete }) {
             }
         
             setTypingState({ currentLineIndex: newLineIndex, currentCharIndex: newCharIndex, changingPhraseIndex: newPhraseIndex, direction: newDirection });
+
+            if (direction === 1) {
+                skipNext = !skipNext
+            }
         }
-        
-        
-         
+
+        const intervalDuration = typingState.direction === 1 ? 120 : 60
 
         const typingInterval = setInterval(() => {
             const { currentLineIndex, currentCharIndex, changingPhraseIndex, direction } = typingState;
             typeChar(currentLineIndex, currentCharIndex, changingPhraseIndex, direction);
-        }, 120)
+        }, intervalDuration)
 
         return () => clearInterval(typingInterval)
     }, [typingState, baseLines])
