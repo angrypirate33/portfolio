@@ -106,13 +106,13 @@ export default function IntroAnimation({ onComplete }) {
 
                     return (
                         <div key={index}>
-                            {content}
+                            <span className="typed-text">{content}</span>
                             {index === currentLineIndex && <span className='console-underscore'>&#95;</span>}
                         </div>
                     ) 
                 })}
             </div>
-            <button onClick={onComplete}>Skip Intro</button>
+            <button className='skip-btn' onClick={onComplete}>Skip Intro</button>
         </div>
     )
 }

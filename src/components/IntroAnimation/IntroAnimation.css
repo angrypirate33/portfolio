@@ -6,6 +6,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgb(37, 37, 37);
+}
+
+.animation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
 }
 
 @keyframes blink {
@@ -17,8 +24,30 @@
 .console-underscore {
     font-size: 8em;
     animation: blink 1.25s infinite;
+    color: rgb(238, 238, 238);
 }
 
-#intro-text {
+.typed-text {
+    font-family: 'VT323', monospace;
     font-size: 8em;
+    color: rgb(238, 238, 238);
+}
+
+.skip-btn {
+    display: inline-block;
+    position: fixed;
+    bottom: 10em;
+    padding: 20px 40px;
+    color: rgb(37, 37, 37);
+    background-color: rgb(238, 238, 238);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #B5BDC8, -6px -6px 12px #FFFFFF;
+    transition: all 0.2s;
+    font-size: 1em;
+}
+
+.skip-btn:active {
+    box-shadow: 3px 3px 6px #B5BDC8, -3px -3px 6px #FFFFFF;
 }
