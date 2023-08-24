@@ -19,11 +19,11 @@ export default function App() {
 
     return () => clearTimeout(timer)
   }, [])
-
-  if (showIntro) {
-    return <IntroAnimation onComplete={() => setShowIntro(false)} />
-  }
-
+    
+    if (showIntro) {
+      return <IntroAnimation onComplete={() => setShowIntro(false)} />
+    }
+    
   return (
     <main className="App">
       <Nav />
@@ -36,12 +36,6 @@ export default function App() {
       <div className='section' id='projects'>
       <ProjectsPage />
       </div>
-
-      {/* <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/about' element={<AboutPage />} />
-        <Route path='/projects' element={<ProjectsPage />} />
-      </Routes> */}
     </main>
   )
 }

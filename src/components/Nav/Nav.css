@@ -1,11 +1,15 @@
 
+.Nav {
+    font-family: 'Nunito', sans-serif;
+}
+
 .nav-container {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     background-color: rgba(37, 37, 37, 0.9);
-    padding: 1em;
+    padding: 0.5em;
     z-index: 100;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
 }
@@ -19,6 +23,12 @@
 .nav-link {
     padding: 0 6em 0 6em;
     font-size: 1.25em;
-    color: white;
+    color: rgb(222, 227, 221);
     text-decoration: none;
+}
+
+a.active {
+    font-weight: bold;
+    color: rgb(155, 159, 154);
+    font-size: 1.5em;
 }
