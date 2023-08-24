@@ -14,7 +14,7 @@ export default function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntro(false)
-    }, 21000)
+    }, 17000)
 
     return () => clearTimeout(timer)
   }, [])

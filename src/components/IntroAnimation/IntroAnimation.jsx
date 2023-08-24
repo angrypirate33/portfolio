@@ -75,7 +75,7 @@ export default function IntroAnimation({ onComplete }) {
             }
         }
 
-        const intervalDuration = typingState.direction === 1 ? 120 : 60
+        const intervalDuration = typingState.direction === 1 ? 100 : 40
 
         const typingInterval = setInterval(() => {
             const { currentLineIndex, currentCharIndex, changingPhraseIndex, direction } = typingState;
