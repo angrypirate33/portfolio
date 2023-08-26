@@ -10,23 +10,15 @@ import './App.css';
 
 export default function App() {
 
-  const [showIntro, setShowIntro] = useState(true)
+  const [showAboutAnimation, setShowAboutAnimation] = useState(false)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowIntro(false)
-    }, 17000)
-
-    return () => clearTimeout(timer)
-  }, [])
-    
-    if (showIntro) {
-      return <IntroAnimation onComplete={() => setShowIntro(false)} />
-    }
+  function handleAboutClick() {
+    setShowAboutAnimation(true)
+  }  
 
   return (
     <main className="App">
-      <Nav />
+      <Nav onAboutClick={handleAboutClick} />
       <div className='section' id='home'>
       <HomePage />
       </div>
@@ -34,7 +26,7 @@ export default function App() {
       <ProjectsPage />
       </div>
       <div className='section' id='about'>
-      <AboutPage />
+      <AboutPage showAnimation={showAboutAnimation} />
       </div>
     </main>
   )

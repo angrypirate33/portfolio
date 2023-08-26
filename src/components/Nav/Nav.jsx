@@ -2,7 +2,7 @@
 import {useState, useEffect} from 'react'
 import './Nav.css'
 
-export default function Nav() {
+export default function Nav({ onAboutClick }) {
 
     const [activeSection, setActiveSection] = useState('home')
 
@@ -10,12 +10,12 @@ export default function Nav() {
         const aboutOffsetTop = document.getElementById('about').offsetTop
         const projectOffsetTop = document.getElementById('projects').offsetTop
 
-        if (window.scrollY < aboutOffsetTop - 50) {
+        if (window.scrollY < projectOffsetTop - 50) {
             setActiveSection('home')
-        } else if (window.scrollY < projectOffsetTop - 50) {
-            setActiveSection('about')
-        } else {
+        } else if (window.scrollY < aboutOffsetTop - 50) {
             setActiveSection('projects')
+        } else {
+            setActiveSection('about')
         }
     }
 
@@ -33,7 +33,7 @@ export default function Nav() {
                 <div className='nav-links'>
                     <a className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} href='#home'>Home</a>
                     <a className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`} href='#projects'>Projects</a>
-                    <a className={`nav-link ${activeSection === 'about' ? 'active' : ''}`} href='#about'>About</a>
+                    <a className={`nav-link ${activeSection === 'about' ? 'active' : ''}`} onClick={onAboutClick} href='#about'>About</a>
                 </div>
             </div>
         </div>
