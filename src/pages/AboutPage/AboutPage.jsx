@@ -29,18 +29,12 @@ export default function AboutPage({ showAnimation }) {
     return (
         <div className="AboutPage">
             <div className="wrapper">
-                { !showAboutContent && <IntroAnimation onComplete={onComplete}/> }
-
-                { showAboutContent && (
-                    <div>
-                        <h1 className='page-title'>About Me</h1>
-                        <AboutMe />
-                        <h2 className='logos-title'>Tehcnologies Used</h2>
-                        <span className="logos-component">
-                            <Logos />
-                        </span>
-                    </div>
-                )}
+                <h1 className='page-title'>About Me</h1>
+                { !showAboutContent ? <IntroAnimation onComplete={onComplete}/> : <AboutMe />}
+                <h2 className='logos-title'>Tehcnologies Used</h2>
+                <span className="logos-component">
+                    <Logos />   
+                </span>
             </div>
         </div>
     )
