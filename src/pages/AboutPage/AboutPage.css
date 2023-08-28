@@ -8,9 +8,16 @@
     flex-direction: column;
     justify-content: space-around;
 }
+
 .page-title {
     margin: 0;
     padding-top: 2.5em;
+}
+
+.conditional-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logos-component {

@@ -1,6 +1,6 @@
 
 .IntroAnimation {
-    height: 95vh;
+    height: 75vh;
     width: 95vw;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@
 .animation-container {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     width: 90vw;
     height: 50vh;
 }
@@ -36,18 +36,24 @@
 }
 
 .skip-btn {
+    opacity: 0;
     display: inline-block;
-    position: fixed;
-    bottom: 27em;
+    position: absolute;
+    bottom: 10em;
     padding: 20px 40px;
-    color: rgb(37, 37, 37);
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(37, 37, 37);
+    color: rgb(238, 238, 238);
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: 6px 6px 12px #B5BDC8, -6px -6px 12px #FFFFFF;
-    transition: all 0.2s;
+    box-shadow: 3px 3px 6px #B5BDC8, -3px -3px 6px #FFFFFF;
+    transition: all 0.2s, opacity 1s ease-in-out;
+    transition-delay: 1s;
     font-size: 1.25em;
+}
+
+.skip-btn.show {
+    opacity: 1;
 }
 
 .skip-btn:active {

@@ -22,6 +22,16 @@ export default function IntroAnimation({ onComplete }) {
 
     const { currentLineIndex, currentCharIndex, changingPhraseIndex } = typingState
 
+    const [showSkipButton, setShowSkipButton] = useState(false)
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowSkipButton(true)
+        }, 1000)
+
+        return () => clearTimeout(timer)
+    }, [])
+
     useEffect(() => {
 
         let skipNext = false
@@ -111,8 +121,8 @@ export default function IntroAnimation({ onComplete }) {
                         </div>
                     ) 
                 })}
+            { showSkipButton && <button className={`skip-btn ${showSkipButton ? 'show' : ''}`} onClick={onComplete}>Skip Intro</button> }
             </div>
-            <button className='skip-btn' onClick={onComplete}>Skip Intro</button>
         </div>
     )
 }
