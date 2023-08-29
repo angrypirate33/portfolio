@@ -13,7 +13,7 @@ export const projects = [
     {
         title: 'Catalelogs',
         description: 'A full stack Django application using a PostgreSQL database. Search an API for the beer of your choice, view its information, and add it to one of your catalelogs',
-        technologies: ['Django', 'Python', 'PostgreSQL', 'Express.js', 'Node.js'],
+        technologies: ['Django', 'Python', 'PostgreSQL', 'Materialize'],
         image: catalelogsImage
     },
     {

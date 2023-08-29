@@ -22,19 +22,19 @@ export default function ProjectsPage() {
                     {projects.map((project, index) => (
                         <div className={`project-card ${flippedCards[index] ? 'flipped' : ''}`} key={index}>
                             <div className="card-front">
-                                <h2>{project.title}</h2>
+                                <h2 className='project-card-title'>{project.title}</h2>
                                 <img src={project.image} alt={project.title} />
+                                <div className="tech-chips">
+                                    {project.technologies.map((tech, techIndex) => (
+                                        <TechChip key={techIndex} tech={tech}/>
+                                        ))}
+                                </div>
                                 <button className='details-button' onClick={() => toggleFlip(index)}>Show Details</button>
                             </div>
                             <div className="card-back">
                                 <h2>{project.title}</h2>
                                 <p>{project.description}</p>
-                                <div className="tech-chips">
-                                    {project.technologies.map((tech, techIndex) => (
-                                        <TechChip key={techIndex} tech={tech}/>
-                                        ))}
-                                    <button className='details-button' onClick={() => toggleFlip(index)}>Hide Details</button>
-                                </div>
+                                <button className='details-button' onClick={() => toggleFlip(index)}>Hide Details</button>
                             </div>
                         </div>
                     ))}
