@@ -24,7 +24,7 @@ export default function ProjectsPage() {
                             <div className="card-front">
                                 <h2>{project.title}</h2>
                                 <img src={project.image} alt={project.title} />
-                                <button onClick={() => toggleFlip(index)}>Show Details</button>
+                                <button className='details-button' onClick={() => toggleFlip(index)}>Show Details</button>
                             </div>
                             <div className="card-back">
                                 <h2>{project.title}</h2>
@@ -33,7 +33,7 @@ export default function ProjectsPage() {
                                     {project.technologies.map((tech, techIndex) => (
                                         <TechChip key={techIndex} tech={tech}/>
                                         ))}
-                                    <button onClick={() => toggleFlip(index)}>Hide Details</button>
+                                    <button className='details-button' onClick={() => toggleFlip(index)}>Hide Details</button>
                                 </div>
                             </div>
                         </div>
