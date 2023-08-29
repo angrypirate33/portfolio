@@ -28,7 +28,6 @@ export default function AboutPage({ showAnimation }) {
 
     return (
         <div className="AboutPage">
-            <div className="wrapper">
                 <div className="conditional-container">
                     { !showAboutContent ? <IntroAnimation onComplete={onComplete}/> : 
                     <div>
@@ -40,7 +39,6 @@ export default function AboutPage({ showAnimation }) {
                         </span>
                     </div>
                 }</div>
-            </div>
         </div>
     )
 }
