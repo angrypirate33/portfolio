@@ -33,7 +33,7 @@ export default function ProjectsPage() {
                             </div>
                             <div className="card-back">
                                 <h2>{project.title}</h2>
-                                <p>{project.description}</p>
+                                <p dangerouslySetInnerHTML={{ __html: project.description }}></p>
                                 <button className='details-button' onClick={() => toggleFlip(index)}>Hide Details</button>
                             </div>
                         </div>
