@@ -13,7 +13,9 @@ export const projects = [
             <li>Responsive design provides desktop, tablet, and mobile views.</li>
         </ul>`,
         technologies: ['React', 'Node.js', 'MongoDB', 'Express.js'],
-        image: blackjackImage
+        image: blackjackImage,
+        deployUrl: '',
+        githubUrl: 'https://github.com/angrypirate33/mern-blackjack'
     },
     {
         title: 'Catalelogs',
@@ -24,7 +26,9 @@ export const projects = [
             <li>Users can create "beer playlists" to keep track of their favorite brews.</li>
         </ul>`,
         technologies: ['Django', 'Python', 'PostgreSQL', 'Materialize'],
-        image: catalelogsImage
+        image: catalelogsImage,
+        deployUrl: 'https://catalelogs.fly.dev/',
+        githubUrl: 'https://github.com/angrypirate33/catalelogs'
     },
     {
         title: 'Harley Finder',
@@ -35,6 +39,8 @@ export const projects = [
             <li>View and compare motorcycle specifications.</li>
         </ul>`,
         technologies: ['React', 'Node.js', 'MongoDB', 'Express.js'],
-        image: HarleyFinderImage
+        image: HarleyFinderImage,
+        deployUrl: 'https://harley-finder.onrender.com/',
+        githubUrl: 'https://github.com/angrypirate33/harley-finder'
     }
 ]
