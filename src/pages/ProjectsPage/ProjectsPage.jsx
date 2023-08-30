@@ -21,7 +21,7 @@ export default function ProjectsPage() {
                 <div className="project-grid">
                     {projects.map((project, index) => (
                         <div className={`project-card ${flippedCards[index] ? 'flipped' : ''}`} key={index}>
-                            <div className="card-front">
+                            <div className="card-front" onClick={() => toggleFlip(index)}>
                                 <h2 className='project-card-title'>{project.title}</h2>
                                 <img src={project.image} alt={project.title} />
                                 <div className="tech-chips">
@@ -32,9 +32,18 @@ export default function ProjectsPage() {
                                 <button className='details-button' onClick={() => toggleFlip(index)}>Show Details</button>
                             </div>
                             <div className="card-back">
-                                <h2>{project.title}</h2>
-                                <p dangerouslySetInnerHTML={{ __html: project.description }}></p>
+                                <button className="close-button" onClick={() => toggleFlip(index)}>X</button>
+                                <h2 className='project-card-title'>{project.title}</h2>
+                                <p className='project-description' dangerouslySetInnerHTML={{ __html: project.description }}></p>
                                 <button className='details-button' onClick={() => toggleFlip(index)}>Hide Details</button>
+                                <div className="project-links">
+                                    <a href={project.deployUrl} target="_blank" rel="noopener noreferrer">
+                                        <button className="deploy-url">Deployed</button>
+                                    </a>
+                                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                                        <button className="github-url">GitHub</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     ))}

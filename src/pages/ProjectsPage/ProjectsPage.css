@@ -15,6 +15,10 @@
   margin: 0;
 }
 
+.project-card-title {
+  font-size: 1.75em;
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
@@ -29,7 +33,6 @@
   position: relative;
   transform-style: preserve-3d; 
   transition: transform 0.5s ease-in-out; 
-  cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
   transform: rotateX(0deg) rotateY(0deg);
 }
@@ -43,28 +46,24 @@
   box-sizing: border-box;
 }
 
-.card-front:hover::before,
-.card-back:hover::before {
+.card-front:hover::before {
   content: '';
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.3)
+  background: rgba(0, 0, 0, 0.75)
 }
 
-.card-front:hover .details-button,
-.card-back:hover .details-button {
+.card-front:hover .details-button {
   display: block;
   z-index: 2;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #fff;
   padding: 10px 20px;
-  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -84,14 +83,45 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
+.card-front {
+  cursor: pointer;
+}
+
 .card-back {
   background-color: #333;
   color: white;
   transform: rotateX(180deg); 
+  display: flex;
+  flex-direction: column;
 }
 
 .details-button {
   display: none;
+  background: none;
+  border: none;
+  color: rgb(222, 227, 221);
+  font-size: 1.75em;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: rgb(222, 227, 221);
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.close-button:hover {
+  transform: scale(1.25);
 }
 
 .tech-chips {
@@ -100,4 +130,45 @@
   flex-wrap: wrap;
   gap: 30px 10px;
   margin-top: 2em;
+}
+
+.project-links {
+  display: flex;
+  justify-content: space-around;
+  margin-top: auto;
+  margin-bottom: 4em;
+}
+
+.github-url, .deploy-url {
+  width: 12em;
+  padding: 1em;
+  cursor: pointer;
+  background-color: rgb(222, 227, 221);
+  color: rgb(37, 37, 37);
+  font-size: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.github-url:hover, .deploy-url:hover {
+  background-color: rgb(37, 37, 37);
+  color: rgb(222, 227, 221)
+}
+
+.project-description {
+  padding: 1em;
+}
+
+.project-description .project-summary {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.project-description .project-bullets {
+  font-size: 1.25em;
+  padding-top: 0.25em;
+}
+
+.project-description .project-bullets li {
+  padding: 0.5em;
 }
