@@ -90,5 +90,21 @@ html {
 }
 
 @media only screen and (max-width: 590px) {
-    
+    .parallax-header {
+        font-size: 2em;
+    }
+
+    .parallax-body {
+        font-size: 1.5em;
+    }
+
+    .profile-pic {
+        width: 10em;
+        height: 10em;
+    }
+
+    .linkedin-logo, .resume-logo {
+        width: 3em;
+        height: 3em;
+    }
 }
