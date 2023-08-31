@@ -9,3 +9,10 @@
     font-size: 1.5em;
     width: 50vw;
 }
+
+@media only screen and (max-width: 850px) {
+    .about-me-text {
+        font-size: 1.25em;
+        width: 80vw;
+    }
+}
