@@ -27,6 +27,18 @@
   margin-top: 10em;
 }
 
+@media (max-width: 1685px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1120px) {
+  .project-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 .project-card {
   width: 30em; 
   height: 42em; 
