@@ -21,6 +21,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2em;
 }
 
 .parallax-background {

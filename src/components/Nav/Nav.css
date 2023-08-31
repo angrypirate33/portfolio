@@ -1,6 +1,7 @@
 
 .Nav {
     font-family: 'Nunito', sans-serif;
+    box-sizing: border-box;
 }
 
 .nav-container {
@@ -37,4 +38,37 @@ a.active {
     font-weight: bold;
     color: rgb(155, 159, 154);
     font-size: 1.5em;
+}
+
+@media only screen and (max-width: 850px) {
+    
+    .nav-link:hover {
+        text-shadow: none;
+    }
+    
+    a.active {
+        text-decoration: underline;
+        font-size: 1.25em;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .nav-links {
+        margin: 0;
+    }
+
+    .nav-link {
+        padding: 0 2em 0 2em;
+        font-size: 1.25em;
+    }
+
+    .nav-link:hover {
+        text-shadow: none;
+    }
+
+    a.active {
+        text-decoration: underline;
+        font-size: 1.25em;
+    }
 }
