@@ -6,9 +6,10 @@
   flex-direction: column;
   align-items: center;
   background-color: rgb(37, 37, 37);
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   z-index: 0;
+  padding-bottom: 1em;
 }
 
 .page-title {
@@ -35,7 +36,7 @@
 
 @media (max-width: 1120px) {
   .project-grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
