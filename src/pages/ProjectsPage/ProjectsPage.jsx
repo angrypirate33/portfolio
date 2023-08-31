@@ -37,12 +37,18 @@ export default function ProjectsPage() {
                                 <p className='project-description' dangerouslySetInnerHTML={{ __html: project.description }}></p>
                                 <button className='details-button' onClick={() => toggleFlip(index)}>Hide Details</button>
                                 <div className="project-links">
-                                    <a href={project.deployUrl} target="_blank" rel="noopener noreferrer">
-                                        <button className="deploy-url">Deployed</button>
-                                    </a>
-                                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                                        <button className="github-url">GitHub</button>
-                                    </a>
+                                    <div className="links-container">
+                                        <div className="project-link">
+                                            <a href={project.deployUrl} target="_blank" rel="noopener noreferrer">
+                                                <button className="deploy-url">Deployed</button>
+                                            </a>
+                                        </div>
+                                        <div className="project-link">
+                                            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                                                <button className="github-url">GitHub</button>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

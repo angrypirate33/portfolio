@@ -145,27 +145,30 @@
   margin-top: 2em;
 }
 
-.project-links {
+.links-container {
   display: flex;
-  justify-content: space-around;
-  margin-top: auto;
-  margin-bottom: 4em;
+  flex-direction: column;
+  margin-top: -1em;
+}
+
+.project-link {
+  padding: 1em 0 1em 0
 }
 
 .github-url, .deploy-url {
   width: 12em;
   padding: 1em;
   cursor: pointer;
-  background-color: rgb(222, 227, 221);
-  color: rgb(37, 37, 37);
+  color: rgb(222, 227, 221);
+  background-color: rgb(37, 37, 37);
   font-size: 1em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .github-url:hover, .deploy-url:hover {
-  background-color: rgb(37, 37, 37);
-  color: rgb(222, 227, 221)
+  color: rgb(37, 37, 37);
+  background-color: rgb(222, 227, 221)
 }
 
 .project-description {
@@ -207,9 +210,21 @@
     background: transparent;
   }
 
+  .links-container {
+    margin-top: 2em;
+  }
+
+  .project-link {
+    padding: 1.5em 0 1.5em 0;
+  }
+
+  .github-url, .deploy-url {
+    font-size: 1.5em;
+  }
+
   .github-url:hover, .deploy-url:hover {
-    background-color: rgb(222, 227, 221);
-    color: rgb(37, 37, 37);
+    color: rgb(222, 227, 221);
+    background-color: rgb(37, 37, 37);
   }
 }
 
@@ -251,6 +266,18 @@
   
   .project-description .project-bullets li {
     padding: 0.25em;
+  }
+
+  .links-container {
+    margin-top: 0;
+  }
+
+  .project-link {
+    padding: 1.25em 0 1.25em 0;
+  }
+
+  .github-url, .deploy-url {
+    font-size: 1em;
   }
 
   .github-url, .deploy-url {
