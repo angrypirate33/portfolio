@@ -185,3 +185,19 @@
 .project-description .project-bullets li {
   padding: 0.5em;
 }
+
+@media only screen and (max-width: 850px) {
+
+  .project-grid {
+    margin: 3em;
+  }
+
+  .card-front:hover::before {
+    background: transparent;
+  }
+
+  .github-url:hover, .deploy-url:hover {
+    background-color: rgb(222, 227, 221);
+    color: rgb(37, 37, 37);
+  }
+}
