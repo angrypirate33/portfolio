@@ -201,3 +201,49 @@
     color: rgb(37, 37, 37);
   }
 }
+
+@media only screen and (max-width: 590px) {
+
+  .ProjectsPage {
+    padding-bottom: 0;
+    margin-bottom: -2em;
+  }
+
+  .project-card {
+    width: 23em;
+    height: 35em;
+  }
+
+  .card-front img {
+    width: 75%;
+    height: 60%;
+  }
+
+  .project-grid {
+    gap: 50px;
+  }
+
+  .project-description {
+    padding: 0 .25em 0 .25em;
+  }
+  
+  .project-description .project-summary {
+    font-size: 1.25em;
+    font-weight: bold;
+  }
+  
+  .project-description .project-bullets {
+    font-size: 1.125em;
+    font-weight: bold;
+    padding-top: 0.125em;
+  }
+  
+  .project-description .project-bullets li {
+    padding: 0.25em;
+  }
+
+  .github-url, .deploy-url {
+    width: 10em;
+    padding: 1em;
+  }
+}
