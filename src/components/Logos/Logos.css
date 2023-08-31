@@ -23,3 +23,9 @@
         transform: scale(.85);
     }
 }
+
+@media only screen and (max-width: 590px) {
+    .logos-container {
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+    }
+}
