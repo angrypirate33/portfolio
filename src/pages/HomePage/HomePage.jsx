@@ -23,11 +23,11 @@ export default function HomePage() {
                         <div className="social-links">
                             <a href="https://www.linkedin.com/in/jon-schiavone-9436ba21b" target='_blank' rel='noopener noreferrer' className='linkedin-link'>
                                 <img src={LinkedinLogo} alt="Linkedin Logo" className='linkedin-logo' />
-                                LinkedIn
+                                <p className='social-text'>LinkedIn</p>
                             </a>
                             <a href="/resume.pdf" target='_blank' rel='noopener noreferrer' className='resume-link'>
                                 <img src={ResumeLogo} alt="Resume" className='resume-logo' />
-                                Resume
+                                <p className='social-text'>Resume</p>
                             </a>
                         </div>
                     </div>

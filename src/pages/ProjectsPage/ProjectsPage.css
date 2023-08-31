@@ -192,6 +192,17 @@
     margin: 3em;
   }
 
+  .project-card {
+    height: 51em;
+  }
+
+  .card-front:after {
+    content: 'Tap for details';
+    display: block;
+    margin-top: 1.5em;
+    font-style: italic;
+  }
+
   .card-front:hover::before {
     background: transparent;
   }
@@ -211,7 +222,7 @@
 
   .project-card {
     width: 23em;
-    height: 35em;
+    height: 40em;
   }
 
   .card-front img {

@@ -81,6 +81,7 @@ html {
 .linkedin-logo, .resume-logo {
     height: 75px;
     width: 75px;
+    margin-bottom: -1em;
 }
 
 .linkedin-link, .resume-link {
@@ -106,5 +107,15 @@ html {
     .linkedin-logo, .resume-logo {
         width: 3em;
         height: 3em;
+        margin-bottom: -1em;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .social-text {
+        font-size: 0.9em;
     }
 }
