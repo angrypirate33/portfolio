@@ -30,6 +30,23 @@
     padding-bottom: 2em;
 }
 
+@media only screen and (max-width: 1370px) {
+    
+    .AboutPage {
+        padding-bottom: 0;
+    }
+
+    #about-title {
+        margin-bottom: -0.5em
+    }
+
+    .logos-title {
+        margin-top: -0.5em;
+        margin-bottom: -0.5em;
+    }
+
+}
+
 @media only screen and (max-width: 850px) {
     .logos-title {
         margin-bottom: -0.5em;

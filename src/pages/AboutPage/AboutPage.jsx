@@ -31,7 +31,7 @@ export default function AboutPage({ showAnimation }) {
                 <div className="conditional-container">
                     { !showAboutContent ? <IntroAnimation onComplete={onComplete}/> : 
                     <div className='about-content'>
-                        <h1 className='page-title'>About Me</h1>
+                        <h1 className='page-title' id='about-title'>About Me</h1>
                         <AboutMe />
                         <h2 className='logos-title'>Tehcnologies Used</h2>
                         <span className="logos-component">
