@@ -200,6 +200,17 @@
   }
 }
 
+@media only screen and (max-width: 1400px) and (min-resolution: 192dpi) {
+  .project-grid {
+    margin-top: -0.5em;
+    gap: 1em 3em;
+  }
+
+  .project-card {
+    transform: scale(.85)
+  }
+}
+
 @media only screen and (max-width: 850px) {
 
   .project-grid {

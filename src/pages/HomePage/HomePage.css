@@ -124,6 +124,40 @@ html {
     }
 }
 
+@media only screen and (max-width: 1400px) and (min-resolution: 192dpi) {
+    
+    .parallax-content {
+        margin-top: 3em;
+    }
+    
+    .parallax-header {
+        font-size: 3em;
+    }
+    
+    .parallax-body {
+        font-size: 2em;
+        margin-top: -0.25em;
+    }
+    
+    .profile-pic {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .social-links {
+        width: 180px;
+    }
+    
+    .linkedin-logo, .resume-logo {
+        height: 60px;
+        width: 60px;
+    }
+    
+    .social-text {
+        font-size: 0.9em;
+    }
+}
+
 @media only screen and (max-width: 590px) {
     .parallax-header {
         font-size: 2em;
