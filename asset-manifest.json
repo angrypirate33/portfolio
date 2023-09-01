@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.6f051cbf.css",
-    "main.js": "/static/js/main.3706748c.js",
+    "main.css": "/static/css/main.008e6dfd.css",
+    "main.js": "/static/js/main.58bb1bed.js",
     "static/media/code-image.jpg": "/static/media/code-image.93a812f70af95a735caa.jpg",
     "static/media/harley-finder.png": "/static/media/harley-finder.30449c205a9271a235ef.png",
     "static/media/blackjack.png": "/static/media/blackjack.69b9aeb190c102c96210.png",
@@ -22,11 +22,11 @@
     "static/media/JavaScript.svg": "/static/media/JavaScript.8ceabc93b77aa7685da354322d54b8ac.svg",
     "index.html": "/index.html",
     "static/media/linkedin.svg": "/static/media/linkedin.a05a7c44218fdda742138a8d830e8ca5.svg",
-    "main.6f051cbf.css.map": "/static/css/main.6f051cbf.css.map",
-    "main.3706748c.js.map": "/static/js/main.3706748c.js.map"
+    "main.008e6dfd.css.map": "/static/css/main.008e6dfd.css.map",
+    "main.58bb1bed.js.map": "/static/js/main.58bb1bed.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f051cbf.css",
-    "static/js/main.3706748c.js"
+    "static/css/main.008e6dfd.css",
+    "static/js/main.58bb1bed.js"
   ]
 }
